@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -16,6 +16,23 @@
             background-color: red;
             padding: 20px;
             text-align: center;
+            position: relative;
+        }
+
+        /* Bilder im Header */
+        .header-img {
+            position: absolute;
+            top: 10px;
+            width: 80px;
+            height: auto;
+        }
+
+        .left-img {
+            left: 10px;
+        }
+
+        .right-img {
+            right: 10px;
         }
 
         nav {
@@ -47,8 +64,18 @@
 <body>
 
 <header>
+    <!-- Linkes Bild (F1 Logo) -->
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/F1.svg" 
+         alt="Formel 1 Logo" 
+         class="header-img left-img">
+
     <h1>Formel 1</h1>
     <p>Die Königsklasse des Motorsports</p>
+
+    <!-- Rechtes Bild (Monaco Strecke) -->
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Circuit_de_Monaco_2016.png" 
+         alt="Monaco Rennstrecke" 
+         class="header-img right-img">
 </header>
 
 <nav>
@@ -70,18 +97,17 @@
     <h2>Bekannte Fahrer</h2>
     <p>
         Einige der berühmtesten Fahrer der Formel 1 sind
-        <strong>[Michael Schumacher](chatgpt://generic-entity?number=1)</strong>,
-        <strong>[Lewis Hamilton](chatgpt://generic-entity?number=2)</strong> und
-        <strong>[Ayrton Senna](chatgpt://generic-entity?number=3)</strong>.
-        Sie haben viele Weltmeistertitel gewonnen und die Geschichte der Formel 1 geprägt.
+        <strong>Michael Schumacher</strong>,
+        <strong>Lewis Hamilton</strong> und
+        <strong>Ayrton Senna</strong>.
     </p>
 
     <h2>Teams</h2>
     <p>
         Zu den erfolgreichsten Teams gehören
-        <strong>[Scuderia Ferrari](chatgpt://generic-entity?number=4)</strong>,
-        <strong>[Mercedes-AMG Petronas Formula One Team](chatgpt://generic-entity?number=5)</strong>
-        und <strong>[Red Bull Racing](chatgpt://generic-entity?number=6)</strong>.
+        <strong>Scuderia Ferrari</strong>,
+        <strong>Mercedes-AMG Petronas Formula One Team</strong>
+        und <strong>Red Bull Racing</strong>.
     </p>
 
 </main>
