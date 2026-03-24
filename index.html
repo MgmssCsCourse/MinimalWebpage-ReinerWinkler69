@@ -1,120 +1,294 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formel 1 Website</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #111;
-            color: white;
-            margin: 0;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formel 1 Ultimate</title>
 
-        header {
-            background-color: red;
-            padding: 20px;
-            text-align: center;
-            position: relative;
-        }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        /* Bilder im Header */
-        .header-img {
-            position: absolute;
-            top: 10px;
-            width: 80px;
-            height: auto;
-        }
+body {
+    font-family: Arial, sans-serif;
+    background: black;
+    color: white;
+}
 
-        .left-img {
-            left: 10px;
-        }
+/* HEADER */
+header {
+    background: linear-gradient(90deg, red, darkred);
+    padding: 30px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 0 20px red;
+}
 
-        .right-img {
-            right: 10px;
-        }
+header h1 {
+    font-size: 3em;
+    text-shadow: 0 0 10px red;
+}
 
-        nav {
-            background-color: #222;
-            padding: 10px;
-            text-align: center;
-        }
+/* HEADER BILDER */
+.header-img {
+    position: absolute;
+    top: 10px;
+    width: 80px;
+}
 
-        nav a {
-            color: white;
-            margin: 10px;
-            text-decoration: none;
-            font-weight: bold;
-        }
+.left { left: 10px; }
+.right { right: 10px; }
 
-        main {
-            padding: 20px;
-        }
+/* NAV */
+nav {
+    background: #111;
+    padding: 15px;
+    text-align: center;
+}
 
-        footer {
-            background-color: #222;
-            text-align: center;
-            padding: 15px;
-            margin-top: 20px;
-        }
-    </style>
+nav a {
+    color: white;
+    margin: 15px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: red;
+    text-shadow: 0 0 10px red;
+}
+
+/* MAIN */
+main {
+    padding: 30px;
+}
+
+/* BUTTON */
+button {
+    padding: 10px 15px;
+    margin: 10px;
+    background: red;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background: darkred;
+}
+
+/* CARDS */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: #111;
+    padding: 20px;
+    border-radius: 10px;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px red;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* FOOTER */
+footer {
+    background: #111;
+    text-align: center;
+    padding: 20px;
+}
+
+/* ANIMATION */
+.fade {
+    animation: fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+/* REAKTIONSSPIEL */
+#light {
+    width: 100px;
+    height: 100px;
+    background: red;
+    margin: 20px auto;
+}
+</style>
+
 </head>
 
 <body>
 
 <header>
-    <!-- Linkes Bild (F1 Logo) -->
-    <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/F1.svg" 
-         alt="Formel 1 Logo" 
-         class="header-img left-img">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/F1.svg" class="header-img left">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Circuit_de_Monaco_2016.png" class="header-img right">
 
-    <h1>Formel 1</h1>
+    <h1>🏎️ Formel 1 Ultimate</h1>
     <p>Die Königsklasse des Motorsports</p>
-
-    <!-- Rechtes Bild (Monaco Strecke) -->
-    <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Circuit_de_Monaco_2016.png" 
-         alt="Monaco Rennstrecke" 
-         class="header-img right-img">
 </header>
 
 <nav>
     <a href="#">Start</a>
-    <a href="#">Teams</a>
-    <a href="#">Fahrer</a>
-    <a href="#">Geschichte</a>
+    <a href="#fahrer">Fahrer</a>
+    <a href="#teams">Teams</a>
 </nav>
 
-<main>
+<main class="fade">
 
-    <h2>Was ist die Formel 1?</h2>
-    <p>
-        Die Formel 1 ist die höchste Rennklasse im internationalen Motorsport.
-        Sie wurde 1950 gegründet und besteht aus einer Weltmeisterschaft mit
-        Rennen auf verschiedenen Strecken weltweit.
-    </p>
+<section>
+<h2>🏁 Rennkalender</h2>
+<ul id="race-list"></ul>
+</section>
 
-    <h2>Bekannte Fahrer</h2>
-    <p>
-        Einige der berühmtesten Fahrer der Formel 1 sind
-        <strong>Michael Schumacher</strong>,
-        <strong>Lewis Hamilton</strong> und
-        <strong>Ayrton Senna</strong>.
-    </p>
+<section id="fahrer">
+<h2>Top Fahrer</h2>
+<div class="cards">
 
-    <h2>Teams</h2>
-    <p>
-        Zu den erfolgreichsten Teams gehören
-        <strong>Scuderia Ferrari</strong>,
-        <strong>Mercedes-AMG Petronas Formula One Team</strong>
-        und <strong>Red Bull Racing</strong>.
-    </p>
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Michael_Schumacher_2012.jpg">
+<h3>Michael Schumacher</h3>
+</div>
+
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Lewis_Hamilton_2016.jpg">
+<h3>Lewis Hamilton</h3>
+</div>
+
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Ayrton_Senna_1991.jpg">
+<h3>Ayrton Senna</h3>
+</div>
+
+</div>
+</section>
+
+<section id="teams">
+<h2>Top Teams</h2>
+<div class="cards">
+
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/en/d/d2/Scuderia_Ferrari_Logo.svg">
+<h3>Ferrari</h3>
+</div>
+
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/en/0/0c/Mercedes_AMG_Petronas_F1_Logo.svg">
+<h3>Mercedes</h3>
+</div>
+
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/en/f/fd/Red_Bull_Racing_logo.svg">
+<h3>Red Bull Racing</h3>
+</div>
+
+</div>
+</section>
+
+<section>
+<h2>🧠 Quiz</h2>
+<p>Wer hat die meisten WM-Titel?</p>
+
+<button onclick="checkAnswer('wrong')">Ayrton Senna</button>
+<button onclick="checkAnswer('correct')">Michael Schumacher</button>
+<button onclick="checkAnswer('correct')">Lewis Hamilton</button>
+
+<p id="quiz-result"></p>
+</section>
+
+<section>
+<h2>🚦 Reaktionsspiel</h2>
+
+<div id="light"></div>
+
+<button onclick="startGame()">Start</button>
+<button onclick="react()">JETZT KLICKEN!</button>
+
+<p id="reaction"></p>
+</section>
 
 </main>
 
 <footer>
-    <p>© 2026 Formel 1 Fan Seite</p>
+<p>© 2026 F1 Ultimate Seite</p>
 </footer>
+
+<script>
+// QUIZ
+function checkAnswer(answer) {
+    const result = document.getElementById("quiz-result");
+
+    if (answer === "correct") {
+        result.innerHTML = "✅ Richtig!";
+        result.style.color = "lime";
+    } else {
+        result.innerHTML = "❌ Falsch!";
+        result.style.color = "red";
+    }
+}
+
+// REAKTIONSSPIEL
+let startTime;
+
+function startGame() {
+    const light = document.getElementById("light");
+    light.style.background = "red";
+
+    setTimeout(() => {
+        light.style.background = "green";
+        startTime = new Date().getTime();
+    }, Math.random() * 3000 + 2000);
+}
+
+function react() {
+    if (!startTime) return;
+
+    const reactionTime = new Date().getTime() - startTime;
+    document.getElementById("reaction").innerHTML =
+        "⏱ Deine Reaktion: " + reactionTime + " ms";
+
+    startTime = null;
+}
+
+// RENNKALENDER
+const races = [
+    "🇧🇭 Bahrain",
+    "🇸🇦 Saudi-Arabien",
+    "🇦🇺 Australien",
+    "🇲🇨 Monaco",
+    "🇬🇧 Großbritannien",
+    "🇮🇹 Italien"
+];
+
+function loadRaces() {
+    const list = document.getElementById("race-list");
+
+    races.forEach(race => {
+        const li = document.createElement("li");
+        li.textContent = race;
+        list.appendChild(li);
+    });
+}
+
+window.onload = loadRaces;
+</script>
 
 </body>
 </html>
